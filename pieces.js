@@ -11,7 +11,7 @@ prixElement.innerText = `Prix: ${article.prix}`;
 const categorieElement = document.createElement("p");
 categorieElement.innerText = article.categorie;
 
-const sectionFiche = document.querySelector("fiches");
+const sectionFiche = document.querySelector(".fiches");
 sectionFiche.appendChild(imageElement);
 sectionFiche.appendChild(nomElement);
 sectionFiche.appendChild(prixElement);
