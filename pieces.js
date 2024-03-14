@@ -1,8 +1,17 @@
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch("pieces-autos.json");
 const pieces = await reponse.json();
-//  Création des balises
-const article = pieces[0];
+
+for (let i =0;  i < pieces.length; i++) {
+
+
+
+const article = pieces[i];
+// Récupération de l'élément DOM qui accueillera les fiches
+const sectionFiche = document.querySelector(".fiches");
+//  Création d'une balise dédiée à une pièce auto
+const pieceElement = document.createElement("article");
+// Création des balises
 
 const imageElement = document.createElement("img");
 imageElement.src = article.image;
@@ -23,11 +32,16 @@ const stockElement = document.createElement("p");
 stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
 
 // Rattachement de nos balises au DOM
-const sectionFiche = document.querySelector(".fiches");
-sectionFiche.appendChild(imageElement);
-sectionFiche.appendChild(nomElement);
-sectionFiche.appendChild(prixElement);
-sectionFiche.appendChild(categorieElement);
-sectionFiche.appendChild(descriptionElement);
-sectionFiche.appendChild(stockElement);
 
+// On rattache la balise article à la section Fiches
+sectionFiche.appendChild(pieceElement)
+// On rattache l'image à pieceElement
+pieceElement.appendChild(imageElement);
+pieceElement.appendChild(nomElement);
+pieceElement.appendChild(prixElement);
+pieceElement.appendChild(categorieElement);
+// Ajout des éléments au DOM pour l'exercice
+pieceElement.appendChild(descriptionElement);
+pieceElement.appendChild(stockElement);
+
+}
